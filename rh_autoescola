@@ -1,7 +1,0 @@
-echo "# AutoEscola_BD" >> README.md 
-git init 
-git add README.md 
-git commit -m "first commit" 
-git branch -M main 
-git remote add origin https://github.com/leonardooliveira0/AutoEscola_BD.git
- git push - sua origem principal
