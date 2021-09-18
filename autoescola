@@ -1,0 +1,46 @@
+# AutoEscola_BD
+Trabalho de Banco de Dados desenvolvido por: Leonardo Mendonça de Oliveira, Luis Guilherme Mourelhe Fernandes e Marina Bedendo Clozato.
+
+create schema autoescola;
+use autoescola;
+
+
+    create table Exame_medico(
+
+	Matricula varchar(8) NOT NULL PRIMARY KEY,
+    Doença_cronica varchar(20),
+    idade integer,
+    Resultado_Medico varchar(9)
+
+    );
+
+    create table Prova(
+
+    senha integer(3) NOT NULL PRIMARY KEY,
+    Nota_Prova_escrita varchar(3),
+    Nota_Prova_pratica varchar(3),
+    Resultado_Final varchar(9)
+
+    );
+
+    create table Dados_adicionais(
+
+    Sigla_estado varchar(2), 
+    Cidade varchar(30),
+    Bairro varchar(30),
+    Rua varchar(30),
+    Numero integer,
+    Cpf varchar(11) NOT NULL PRIMARY KEY
+    );
+
+    create table Aluno(
+    
+    Telefone varchar(11) NOT NULL PRIMARY KEY,
+    Nome varchar(60),    
+    Ano_nascimento integer,
+    FK_cpf varchar (11),
+    FK_matricula varchar (8),
+    FOREIGN KEY (FK_cpf) REFERENCES Dados_adicionais (Cpf),
+    FOREIGN KEY (FK_matricula) REFERENCES Exame_medico (Matricula)
+
+    );
